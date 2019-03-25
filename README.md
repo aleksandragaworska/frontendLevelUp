@@ -1,2 +1,0 @@
-# frontendLevelUp
-daftacademy_frontendLevelUp
