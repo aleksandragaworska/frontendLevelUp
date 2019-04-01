@@ -1,0 +1,96 @@
+body {
+	background-color: #ccf9f9;
+	margin-top: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+.logo {
+	border: solid 2px black;
+	padding: 0.5em 1.5em;
+}
+
+.menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: 1vw;
+}
+
+.menu__item {
+	margin: 0 2vw;
+	color:  #91aee9 ;
+	font-size: 12px;
+	display: inline-block;
+	@include desktop {
+		display: inline;
+		font-size: 16px;
+	}
+	@include tablet {
+		font-size: 14px;
+	}
+	&:hover {
+		text-decoration: underline;
+		color:  #40537a;
+	}
+}
+
+.drinks {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: 1vw;
+}
+
+.drinks__item {
+	box-sizing: border-box;
+	&:hover {
+		outline: 4px solid #f0b27a;
+		outline-offset: -4px;
+	}
+}
+
+@each $element in bijou, negroni, mojito, rattlesnake, eggnogg, zinger {
+	.#{$element} {
+		background-image: url('assets/#{$element}.jpg');
+		background-size: 20em 20em;
+		margin: 1em;
+		width: 20em;
+		height: 20em;
+	}
+}
+
+.drinks__name {
+	text-align: center;
+	color: white;
+	font-size: 2em;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 30%;
+}
+
+.email {
+	font-size: 10px;
+	color:  #91aee9;
+
+	a {
+		color:  #40537a;
+		text-decoration: none;
+	}
+}
